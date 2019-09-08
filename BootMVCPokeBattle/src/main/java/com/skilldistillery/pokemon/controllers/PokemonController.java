@@ -21,7 +21,7 @@ public class PokemonController {
 	public String index(Model model) {
 		List<Pokemon> pokemon= dao.findAll();
 		model.addAttribute("pokemon", pokemon);
-		return "index";
+		return "/WEB-INF/index.jsp";
 		// return "index"; // if using a ViewResolver.
 	}
 	
@@ -29,7 +29,7 @@ public class PokemonController {
 	public String showPokemon(@RequestParam("pid") Integer pid, Model model) {
 		Pokemon p = dao.findByID(pid);
 		model.addAttribute("pokemon", p);
-		return "sub/show";
+		return "/WEB-INF/sub/show.jsp";
 		// return "show"; // if using a ViewResolver.
 	}
 

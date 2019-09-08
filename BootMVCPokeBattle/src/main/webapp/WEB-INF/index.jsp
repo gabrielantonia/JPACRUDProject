@@ -6,10 +6,11 @@
 <head>
 <jsp:include page="styletags.jsp"></jsp:include>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Pokemon Battles</title>
 </head>
 <body>
 	<h2>
+		
 		<form action="getPokemon.do" method="GET">
 			Film ID: <input type="text" name="pid" /> <input type="submit"
 				value="Show Pokemon" />
