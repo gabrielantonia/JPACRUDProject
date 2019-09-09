@@ -31,6 +31,8 @@ public class PokemonController {
 	@RequestMapping(path = "create.do")
 	public ModelAndView create() {
 		ModelAndView mv = new ModelAndView();
+		Pokemon pokemon = new Pokemon();
+		mv.addObject("pokemon", pokemon);
 		mv.setViewName("/WEB-INF/sub/create.jsp");
 		return mv;
 		// return "index"; // if using a ViewResolver.
@@ -45,9 +47,25 @@ public class PokemonController {
 	}
 	
 	@RequestMapping(path = "createPokemon.do", method = RequestMethod.POST)
-	public String createPokemon( @ModelAttribute("pokemon")Pokemon pokemon, Model model) {
-		model.addAttribute("pokemon", pokemon);
+	public String createPokemon( Pokemon pokemon, Model model) {
+		model.addAttribute("pokemon", dao.findAll());
 		dao.createPokemon(pokemon);
+		return "/WEB-INF/index.jsp";
+	}
+	@RequestMapping(path = "update.do")
+	public ModelAndView update(Pokemon pokemon) {
+		ModelAndView mv = new ModelAndView();
+		pokemon = dao.findByID(pokemon.getPokedexNumber());
+		mv.addObject("pokemon", pokemon);
+		mv.setViewName("/WEB-INF/sub/update.jsp");
+		return mv;
+		// return "index"; // if using a ViewResolver.
+	}
+
+	@RequestMapping(path = "updatePokemon.do", method = RequestMethod.POST)
+	public String updatePokemon( Pokemon pokemon, Model model) {
+		dao.updatePokemon(pokemon , pokemon.getPokedexNumber());
+		model.addAttribute("pokemon", dao.findAll());
 		return "/WEB-INF/index.jsp";
 	}
 	

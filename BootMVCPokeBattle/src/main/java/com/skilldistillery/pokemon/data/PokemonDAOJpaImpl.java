@@ -38,9 +38,22 @@ public class PokemonDAOJpaImpl implements PokemonDAO {
 	}
 	
 	@Override
-	public Pokemon updatePokemon(Pokemon pokemon) {
-		em.persist(pokemon);
-		return pokemon;
+	public Pokemon updatePokemon(Pokemon pokemon, int pokedexNumber) {
+		Pokemon updatePokemon = em.find(Pokemon.class, pokedexNumber);
+		updatePokemon.setHp(pokemon.getHp());
+		updatePokemon.setAbilities((pokemon.getAbilities()));;
+		updatePokemon.setAttack(pokemon.getAttack());
+		updatePokemon.setName(pokemon.getName());
+		updatePokemon.setClassification(pokemon.getClassification());
+		updatePokemon.setDefense(pokemon.getDefense());
+		updatePokemon.setHeight(pokemon.getHeight());
+		updatePokemon.setWeight(pokemon.getWeight());
+		updatePokemon.setSpecialAttack(pokemon.getSpecialAttack());
+		updatePokemon.setSpecialDefense(pokemon.getSpecialDefense());
+		updatePokemon.setType1(pokemon.getType1());
+		updatePokemon.setType2(pokemon.getType2());
+		em.persist(updatePokemon);
+		return updatePokemon;
 	}
 	
 	@Override

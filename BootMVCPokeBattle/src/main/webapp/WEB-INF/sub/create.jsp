@@ -45,6 +45,8 @@
 
 			<form:button type="submit"> Create </form:button>
 		</form:form>
+		
+	</div>
 	</div>
 </body>
 </html>
