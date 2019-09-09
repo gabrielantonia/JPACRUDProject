@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,17 +43,7 @@
 		</p>
 		<p>
 			
-	<form:form action="deletePokemon.do" method="POST" modelAttribute="pokemon">
-		<input type="hidden" name="pokedexNumber" value="${pokemon.pokedexNumber}" />
-		<input type="submit" name="Delete this Pokemon" value="Delete pokemon" />
-	</form:form>
-	
-	
 		</p>
-	
-    <a href="${pageContext.request.contextPath}/">
-    	<button>Home</button>
-    </a>
-</div>
+	</div>
 </body>
 </html>

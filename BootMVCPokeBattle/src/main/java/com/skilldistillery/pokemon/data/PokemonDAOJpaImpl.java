@@ -29,5 +29,31 @@ public class PokemonDAOJpaImpl implements PokemonDAO {
 		pokemon = em.createQuery(queryString, Pokemon.class).getResultList();
 		return pokemon;
 	}
+	
+	@Override
+	public Pokemon createPokemon(Pokemon pokemon) {
+		em.persist(pokemon);
+		em.flush();
+		return pokemon;
+	}
+	
+	@Override
+	public Pokemon updatePokemon(Pokemon pokemon) {
+		em.persist(pokemon);
+		return pokemon;
+	}
+	
+	@Override
+	public boolean deletePokemon(Pokemon pokemon) {
+		System.out.println("Deleting: "+ " ID: " + pokemon.getPokedexNumber() + " Name: " + pokemon.getName());
+		boolean removed = false;
+		pokemon = em.find(Pokemon.class, pokemon.getPokedexNumber());
+		if(pokemon != null) {
+		em.remove(pokemon);
+		removed = true;
+		}
+		return removed;
+	}
 
+	
 }
