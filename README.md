@@ -1,4 +1,4 @@
-![image][https://raw.githubusercontent.com/gabrielantonia/JPACRUDProject/master/BootMVCPokeBattle/src/main/webapp/images/pokballbackground.png]
+![backgroundimage](https://raw.githubusercontent.com/gabrielantonia/JPACRUDProject/master/BootMVCPokeBattle/src/main/webapp/images/pokballbackground.png)
 
 ## Spring/MVC JPA CRUD Project
 Individual homework for Skill Distillery
